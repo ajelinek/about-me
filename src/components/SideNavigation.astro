@@ -1,12 +1,86 @@
 ---
+import { Image } from 'astro:assets'
+import Me from '../images/me.jpg'
 interface Props {}
 ---
 
-<nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
-  </ul>
-</nav>
+<div class='content'>
+  <div class='contact'>
+    <Image class='me' src={Me} alt='Me' width='400' />
+    <a href='/'><h1 class='name'>Adam Jelinek</h1></a>
+    <p class='title'>Technology Director | Entrepreneur</p>
+  </div>
+  <nav class='nav'>
+    <ul class='nav-list'>
+      <li><a href='/who-am-i'>Who Am I</a></li>
+      <li><a href='/professional-journey'>Professional Journey</a></li>
+      <li><a href='/understanding-my-personality'>Understanding My Personality</a></li>
+      <li><a href='/leadership-philosophy'>Leadership Philosophy</a></li>
+      <li><a href='/personal-mission-vision'>My Mission & Vision</a></li>
+      <li><a href='/books-and-quotes'>Books and Favoriate Quotes</a></li>
+      <li><a href='/blogs'>Blogs</a></li>
+    </ul>
+  </nav>
+</div>
+<script>
+  // Get the current URL
+  const currentUrl = location.pathname
 
-<style></style>
+  // Get all the list items
+  const listItems = document.querySelectorAll('.nav-list li')
+
+  // Loop through the list items and add the active class to the one that matches the current URL
+  listItems.forEach(item => {
+    const link = item.querySelector('a')
+    if (link?.getAttribute('href') === currentUrl) {
+      item.classList.add('active-url')
+    }
+  })
+</script>
+
+<style>
+  .content {
+    background-color: var(--muted-border-color);
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+
+  .me {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+
+  .name {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: center;
+  }
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-list li {
+    text-align: center;
+    padding: 0.25rem;
+  }
+</style>

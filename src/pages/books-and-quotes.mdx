@@ -1,0 +1,43 @@
+---
+layout: ../layouts/BasicMarkdown.astro
+title: Books & Quotes
+nextUrl: /
+nextPageTitle: The End
+---
+import {quotes} from '../constants/quotes.js';
+import Quote from '../components/Quote.astro';
+import GoodReads from '../components/GoodReads.astro';
+
+# Books A Journey of Growth and Wisdom
+In the journey of life, the pursuit of knowledge, personal growth, and continuous improvement is like venturing into uncharted territory. Books have been my trusted companions, guiding me through a diverse landscape of ideas and wisdom. As I've evolved from a technology enthusiast with a passion for science fiction and fantasy to a dedicated leader, my reading habits have also undergone a transformation.
+
+<GoodReads />
+
+As my leadership career evolved, the need to learn and consume books on leadership became evident. They offered more than just knowledge; they held the potential to redefine my outlook, inspire new ideas, and challenge my existing beliefs. Over time, the collection of books that have graced my life has grown, while some have left a lasting impact, I must admit, revisiting a book is a rarity. I do however find myself frequently recommending these volumes to friends, family, and colleagues.
+
+## Recommendations
+*  "The 15 Invaluable Laws of Growth: Live Them and Reach Your Potential" – John C. Maxwell
+*  "Full Steam Ahead!: Unleash the Power of Vision in Your Work and Your Life" – Ken Blanchard and Jesse Stoner
+*  "Turning the Flywheel: A Monograph to Accompany Good to Great" – Jim Collins
+*  "Never Split the Difference: Negotiating As If Your Life Depended On It" – Chris Voss
+*  "The Speed of Trust: The One Thing that Changes Everything" – Stephen M.R. Covey
+*  "The Power of Vulnerability: Teachings of Authenticity, Connections and Courage" – Brené Brown
+*  "The New One Minute Manager" – Ken Blanchard and Spencer Johnson
+*  "Extreme Ownership: How U.S. Navy SEALs Lead and Win" – Jocko Willink and Leif Babin
+*  "Unfu*k Yourself: Get Out of Your Head and Into Your Life" – Gary John Bishop
+*  "The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win" – Gene Kim, Kevin Behr, and George Spafford
+*  "The Three Signs of a Miserable Job: A Fable for Managers" – Patrick Lencioni
+*  "The First 90 Days: Critical Success Strategies for New Leaders at All Levels" – Michael D. Watkins
+
+Each of these books has played a role in molding my leadership style, guiding my personal growth journey, and offering fresh perspectives on life's complexities. They've served as catalysts for change and continuous improvement, influencing not only how I perceive my roles as a husband, father, and leader but also how I navigate the ever-evolving landscape of technology and business.
+
+As my journey of learning and growth continues, books remain indispensable sources of wisdom and inspiration. They reaffirm the principle that our growth, both personal and professional, is profoundly intertwined with the knowledge we gain from others. Reading, or listening, offers the unique opportunity to learn from mentors, past and present, who have shared their insights through the written word. It is a reminder that our potential for growth knows no bounds, as long as we remain open to the lessons that books have to offer.
+
+## Turning Moments into Opportunities
+A little tip: embrace multitasking. Life can be hectic, and we all have tasks that seem mundane but are essential, from commuting to work, doing household chores, or mowing the lawn. It's during these moments that you can effectively utilize audiobooks. By learning to listen to books at 2x speed, even the largest books become manageable, and you can efficiently consume the wisdom of authors. Pop in your earbuds, press play, and let the wisdom of authors accompany you in these everyday endeavors. You'll be amazed at how much you can learn and grow by making the most of those otherwise unproductive moments. It's like having a mentor on call whenever you need them, ready to share their insights and experiences. So why not embrace multitasking as a tool for personal and professional development?
+
+
+## Quotes
+Quotes have a unique ability to capture timeless wisdom and inspiration in just a few words. They offer moments of reflection and contemplation, serving as beacons of guidance in our personal and professional journeys. 
+
+{quotes.map((q) => <Quote quote={q.quote} author={q.author} />)}

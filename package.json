@@ -10,7 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^1.1.2",
     "@picocss/pico": "^1.5.10",
-    "astro": "^3.2.3"
+    "astro": "^3.2.3",
+    "astro-icon": "^0.8.1"
   }
 }

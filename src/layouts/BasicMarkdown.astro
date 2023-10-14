@@ -1,0 +1,22 @@
+---
+import Layout from './Layout.astro'
+
+const { nextUrl, title, nextPageTitle } = Astro.props?.frontmatter || {}
+console.log('🚀 ~ { nextUrl, title, nextPageTitle }:', { nextUrl, title, nextPageTitle }, Astro.props)
+---
+
+<Layout title={title}>
+  <div>
+    <slot />
+  </div>
+  <a href={nextUrl}><button>{nextPageTitle}</button></a>
+</Layout>
+
+<style>
+  a {
+    margin: 1.5rem;
+  }
+  /* div {
+    min-height: 81vh;
+  } */
+</style>
