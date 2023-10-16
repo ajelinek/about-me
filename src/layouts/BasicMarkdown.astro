@@ -1,21 +1,31 @@
 ---
 import Layout from './Layout.astro'
 
-const { nextUrl, title, nextPageTitle } = Astro.props?.frontmatter || {}
+const { nextUrl, title, nextPageTitle, minutesRead } = Astro.props?.frontmatter || {}
 ---
 
 <Layout title={title}>
-  <div>
+  <div class='markdown-content'>
+    <p class='read-time'>{minutesRead}</p>
     <slot />
   </div>
   <a href={nextUrl}><button>{nextPageTitle}</button></a>
 </Layout>
 
 <style>
+  .markdown-content {
+    position: relative;
+  }
+
   a {
     margin: 1.5rem;
   }
-  /* div {
-    min-height: 81vh;
-  } */
+  .read-time {
+    margin: 0;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: smaller;
+    color: var(--muted-color);
+  }
 </style>
