@@ -10,7 +10,7 @@ export async function getStoryPaths() {
     const title = story.data.title
     const nextStory = sortedStories[index + 1]
 
-    let nextUrl = '/'
+    let nextUrl = '/about-me'
     let nextPageTitle = 'The End'
     if (nextStory && index < sortedStories.length - 1) {
       nextUrl = nextStory.slug.split('_')[1]
