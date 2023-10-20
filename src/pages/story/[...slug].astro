@@ -1,0 +1,49 @@
+---
+import { getStoryPaths } from '@/utils/content/collections'
+import Layout from '@/layouts/Layout.astro'
+import Icon from 'astro-icon'
+
+export async function getStaticPaths() {
+  return getStoryPaths()
+}
+
+const { story, nextUrl, nextPageTitle } = Astro.props
+const {
+  Content,
+  remarkPluginFrontmatter: { title, minutesRead },
+} = await story.render()
+---
+
+<Layout title={`Adam Jelinek | ${title}`}>
+  <div class='markdown-content'>
+    <p class='read-time'>{minutesRead}</p>
+    <Content />
+  </div>
+  <a href={nextUrl}>
+    <button>
+      {nextPageTitle}
+    </button>
+  </a>
+</Layout>
+
+<style>
+  .markdown-content {
+    position: relative;
+  }
+
+  a {
+    margin: 1.5rem;
+    float: right;
+  }
+  button {
+    width: fit-content;
+  }
+  .read-time {
+    margin: 0;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: smaller;
+    color: var(--muted-color);
+  }
+</style>

@@ -14,6 +14,7 @@
     "@picocss/pico": "^1.5.10",
     "astro": "^3.2.3",
     "astro-icon": "^0.8.1",
+    "fast-sort": "^3.4.0",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0"
   }
