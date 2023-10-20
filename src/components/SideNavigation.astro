@@ -2,7 +2,9 @@
 import { Image } from 'astro:assets'
 import Me from '../images/me.jpg'
 import Icon from 'astro-icon'
-interface Props {}
+import { getStaticPaths } from '@/pages/story/[...slug].astro'
+
+const stories = await getStaticPaths()
 ---
 
 <div class='content'>
@@ -14,13 +16,13 @@ interface Props {}
   <Icon class='hamburger-button' name='ic:sharp-menu' />
   <nav class='nav'>
     <ul class='nav-list'>
-      <li><a href='/about-me/who-am-i'>Who Am I</a></li>
-      <li><a href='/about-me/professional-journey'>Professional Journey</a></li>
-      <li><a href='/about-me/understanding-my-personality'>Understanding My Personality</a></li>
-      <li><a href='/about-me/leadership-philosophy'>Leadership Philosophy</a></li>
-      <li><a href='/about-me/personal-mission-vision'>My Mission & Vision</a></li>
-      <li><a href='/about-me/books-and-quotes'>Books and Favoriate Quotes</a></li>
-      <li><a href='/about-me/blogs'>Blogs</a></li>
+      {
+        stories.map(story => (
+          <li>
+            <a href={`/about-me/story/${story.params.slug}`}>{story.props.title}</a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </div>
@@ -73,18 +75,22 @@ interface Props {}
   }
 
   .nav {
-    display: flex;
+    width: 100%;
     justify-content: center;
   }
+
   .nav-list {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .nav-list li {
     text-align: center;
-    padding: 0.25rem;
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
   }
+
   @media (min-width: 768px) {
     .hamburger-button {
       display: none;
