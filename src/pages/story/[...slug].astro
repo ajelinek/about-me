@@ -19,11 +19,11 @@ const {
     <p class='read-time'>{minutesRead}</p>
     <Content />
   </div>
-  <a href={nextUrl}>
-    <button>
+  <p class='next-page'>
+    Next: <a href={nextUrl}>
       {nextPageTitle}
-    </button>
-  </a>
+    </a>
+  </p>
 </Layout>
 
 <style>
@@ -31,13 +31,15 @@ const {
     position: relative;
   }
 
-  a {
+  .next-page {
     margin: 1.5rem;
     float: right;
   }
-  button {
-    width: fit-content;
+
+  .next-page a {
+    padding-left: 0.5rem;
   }
+
   .read-time {
     margin: 0;
     position: absolute;

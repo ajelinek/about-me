@@ -1,8 +1,6 @@
 ---
-layout: ../layouts/BasicMarkdown.astro
+layout: '@/layouts/Layout.astro'
 title: Adam Jelinek | TLDR;
-nextUrl: /about-me/who-am-i
-nextPageTitle: Learn More
 ---
 
 import { Image } from 'astro:assets';
@@ -17,4 +15,7 @@ My personality, defined as INTJ-A, signifies my analytical and reflective nature
 <div style={{display: "flex", justifyContent: "center"}}>
   <Image style={{"border-radius": "10px",  minWidth: "30%", maxWidth: "400px", textAlign: "center"}} 
          src={Gorilla} alt="A gorilla thinking at a computer"/>
+</div>
+<div style={{float: "right"}}>
+<a href='/about-me/story/who-am-i'>Learn More</a>
 </div>
