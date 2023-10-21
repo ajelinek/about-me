@@ -7,7 +7,7 @@ import { getStaticPaths } from '@/pages/story/[...slug].astro'
 const stories = await getStaticPaths()
 ---
 
-<div class='content'>
+<div class='content' transition:name='navigation' transition:persist>
   <div class='contact'>
     <Image class='me' src={Me} alt='Me' width='400' />
     <a href='/about-me'><h1 class='name'>Adam Jelinek</h1></a>
@@ -115,11 +115,11 @@ const stories = await getStaticPaths()
   }
 </style>
 
-<script>
-  const hamburgerButton = document.querySelector('.hamburger-button')
-  const nav = document.querySelector('.nav')
+<script is:inline>
+const hamburgerButton = document.querySelector('.hamburger-button')
+const nav = document.querySelector('.nav')
 
-  hamburgerButton?.addEventListener('click', () => {
-    nav?.classList.toggle('open')
-  })
+hamburgerButton?.addEventListener('click', () => {
+  nav?.classList.toggle('open')
+})
 </script>
