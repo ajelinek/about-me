@@ -26,23 +26,31 @@ const stories = await getStaticPaths()
     </ul>
   </nav>
 </div>
+
 <script>
-  // Get the current URL
-  const currentUrl = location.pathname
+  function setActiveUrl() {
+    const currentUrl = location.pathname
 
-  // Get all the list items
-  const listItems = document.querySelectorAll('.nav-list li')
+    const listItems = document.querySelectorAll('.nav-list li')
 
-  // Loop through the list items and add the active class to the one that matches the current URL
-  listItems.forEach(item => {
-    const link = item.querySelector('a')
-    if (link?.getAttribute('href') === currentUrl) {
-      item.classList.add('active-url')
-    }
-  })
+    listItems.forEach(item => {
+      const link = item.querySelector('a')
+      if (link?.getAttribute('href') === currentUrl) {
+        item.classList.add('active-url')
+      } else {
+        item.classList.remove('active-url')
+      }
+    })
+  }
+
+  document.addEventListener('astro:after-swap', setActiveUrl)
 </script>
 
 <style>
+  a:focus {
+    background-color: transparent;
+  }
+
   .content {
     background-color: var(--muted-border-color);
     padding: 1rem;
@@ -115,11 +123,11 @@ const stories = await getStaticPaths()
   }
 </style>
 
-<script is:inline>
-const hamburgerButton = document.querySelector('.hamburger-button')
-const nav = document.querySelector('.nav')
+<script>
+  const hamburgerButton = document.querySelector('.hamburger-button')
+  const nav = document.querySelector('.nav')
 
-hamburgerButton?.addEventListener('click', () => {
-  nav?.classList.toggle('open')
-})
+  hamburgerButton?.addEventListener('click', () => {
+    nav?.classList.toggle('open')
+  })
 </script>
