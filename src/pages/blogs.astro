@@ -7,8 +7,6 @@ import MediumBlogs from '@/components/MediumBlogs.astro'
 
 <Layout title='Blogs'>
   <div class='intro'>
-    <Image class='image' src={GorillaWriting} alt='A gorilla writing' />
-
     <div class='message'>
       <h2>My Blogs</h2>
       <p>
@@ -23,43 +21,4 @@ import MediumBlogs from '@/components/MediumBlogs.astro'
   <MediumBlogs />
 </Layout>
 
-<style>
-  .image {
-    width: 400px;
-    height: 400px;
-    border-radius: 10px;
-  }
-
-  .message {
-    min-width: 15rem;
-    max-width: calc(100% - 400px - 3rem);
-  }
-
-  .intro {
-    display: flex;
-    column-gap: 2rem;
-    row-gap: 2rem;
-    flex-wrap: wrap;
-    margin: 2rem 0;
-  }
-  @media (max-width: 1444px) {
-    .image {
-      margin: auto;
-    }
-    .message {
-      width: 100%;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .image {
-      width: 300px;
-      height: 300px;
-      margin: 0 auto;
-    }
-    .intro {
-      flex-direction: column;
-    }
-  }
-</style>
+<style></style>

@@ -1,35 +1,8 @@
 ---
-import { parse } from 'rss-to-json'
-import dayjs from 'dayjs'
-const paragraph = /<p[^>]*>(.*?)<\/p>/i
-const imageUrl = /<img[^>]+src="([^">]+)"/i
+import MediumBlogsDynamic from '@/components/MediumBlogsDynamic'
+import { fetchBlogPosts } from '@/store/blogs'
 
-const rssJson = await parse('https://medium.com/feed/@shadetreeit')
-const blogPosts = rssJson.items.map(item => {
-  return {
-    title: item.title,
-    link: item.link,
-    pubDate: dayjs(item.published),
-    categories: item.category,
-    imageUrl: item.content.match(imageUrl)?.[1],
-    intro: item.content.match(paragraph)?.[1],
-  }
-})
+const blogPosts = await fetchBlogPosts()
 ---
 
-<h3>Feed</h3>
-{
-  blogPosts.map(post => (
-    <div>
-      <a href={post.link}>
-        <img src={post.imageUrl} alt={post.title} />
-      </a>
-      <h4>{post.title}</h4>
-      <p>{post.pubDate.format('MMMM D, YYYY')}</p>
-      {post.categories.map((category: string) => (
-        <span>{category}</span>
-      ))}
-      <p>{post.intro}</p>
-    </div>
-  ))
-}
+<MediumBlogsDynamic blogs={blogPosts} client:load />
