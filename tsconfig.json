@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "/home/ajelinek/code/about-me",
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "src/*"
