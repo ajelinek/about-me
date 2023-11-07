@@ -1,4 +1,3 @@
-
 type BlogPost = {
   title: string
   link: string

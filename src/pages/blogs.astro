@@ -1,8 +1,6 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import { Image } from 'astro:assets'
-import GorillaWriting from '@/images/gorilla-writing.jpg'
 import MediumBlogs from '@/components/MediumBlogs.astro'
+import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout title='Blogs'>
@@ -18,6 +16,12 @@ import MediumBlogs from '@/components/MediumBlogs.astro'
       </p>
     </div>
   </div>
+  <p>
+    Don't let your FOMO get the best of you! <a href='https://medium.com/@shadetreeit' target='_blank' class='button'
+      >Follow me on Medium</a
+    > and never miss an entry.
+  </p>
+
   <MediumBlogs />
 </Layout>
 

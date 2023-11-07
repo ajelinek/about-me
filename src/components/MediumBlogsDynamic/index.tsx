@@ -16,7 +16,7 @@ export default function MediumBlogsDynamic(props: Props) {
     <>
       <div class={s.header}>
         <h2 >Published Blogs</h2>
-        <input class={s.search} type="search" value={filter()} onInput={(e) => setFilter(e.currentTarget.value)} />
+        <input class={s.search} type="search" placeholder="filter" value={filter()} onInput={(e) => setFilter(e.currentTarget.value)} />
       </div>
       {
         filteredBlogs().map(post => <Post post={post} />)

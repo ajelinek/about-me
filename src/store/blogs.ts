@@ -2,6 +2,7 @@
 import rss from 'rss-to-json'
 //@ts-ignore
 const { parse } = rss
+// import { parse } from 'rss-to-json'
 import dayjs from 'dayjs'
 import { sort } from 'fast-sort'
 const paragraph = /<p[^>]*>(.*?)<\/p>/i
@@ -9,7 +10,7 @@ const imageUrl = /<img[^>]+src="([^">]+)"/i
 
 export async function fetchBlogPosts(): Promise<BlogPost[]> {
   const rssJson = await parse('https://medium.com/feed/@shadetreeit')
-  const posts: BlogPost[] = rssJson.items.map(item => {
+  const posts: BlogPost[] = rssJson.items.map((item: any) => {
     const firstParagraph = item.content.match(paragraph)?.[1]
     return {
       title: item.title,
