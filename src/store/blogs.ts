@@ -1,5 +1,7 @@
 
-import { parse } from 'rss-to-json'
+import rss from 'rss-to-json'
+//@ts-ignore
+const { parse } = rss
 import dayjs from 'dayjs'
 import { sort } from 'fast-sort'
 const paragraph = /<p[^>]*>(.*?)<\/p>/i
