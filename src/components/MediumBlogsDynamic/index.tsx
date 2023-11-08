@@ -45,7 +45,7 @@ function Post(props: { post: BlogPost }) {
             <h5 class={s.title}>{post.title}</h5>
           </a>
 
-          {/* <p class={s.pubDate}>{post.pubDate?.format('MMMM DD, YYYY')}</p> */}
+          <p class={s.pubDate}>{post.pubDate?.format('MMMM DD, YYYY')}</p>
           <p class={s.content}>{post.intro}</p>
           <label class={s.categoryLabel}>Categories:</label> {categoriesList}
         </div>
