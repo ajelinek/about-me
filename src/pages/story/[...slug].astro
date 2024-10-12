@@ -1,7 +1,7 @@
 ---
 import { getStoryPaths } from '@/utils/content/collections'
 import Layout from '@/layouts/Layout.astro'
-import Icon from 'astro-icon'
+import { slide } from 'astro:transitions'
 
 export async function getStaticPaths() {
   return getStoryPaths()
@@ -17,7 +17,7 @@ const {
 <Layout title={`Adam Jelinek | ${title}`}>
   <div class='markdown-content'>
     <p class='read-time'>{minutesRead}</p>
-    <Content />
+    <Content transition:animate={slide({ duration: '1.5s' })} />
   </div>
   <p class='next-page'>
     Next: <a href={nextUrl}>

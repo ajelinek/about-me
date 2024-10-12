@@ -1,0 +1,8 @@
+---
+import MediumBlogsDynamic from '@/components/MediumBlogsDynamic'
+import { fetchBlogPosts } from '@/store/blogs'
+
+const blogPosts = await fetchBlogPosts()
+---
+
+<MediumBlogsDynamic blogs={blogPosts} client:load />
