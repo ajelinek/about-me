@@ -86,6 +86,7 @@ const stories = await getStaticPaths()
   .nav {
     width: 100%;
     justify-content: center;
+    display; none;
   }
 
   .nav-list {
@@ -100,13 +101,13 @@ const stories = await getStaticPaths()
     border-radius: 0.25rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1200px) {
     .hamburger-button {
       display: none;
     }
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     .hamburger-button {
       display: initial;
       position: absolute;
