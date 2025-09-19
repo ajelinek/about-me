@@ -1,4 +1,3 @@
-
 import rss from 'rss-to-json'
 //@ts-ignore
 const { parse } = rss
@@ -9,19 +8,24 @@ const paragraph = /<p[^>]*>(.*?)<\/p>/i
 const imageUrl = /<img[^>]+src="([^">]+)"/i
 
 export async function fetchBlogPosts(): Promise<BlogPost[]> {
-  const rssJson = await parse('https://medium.com/feed/@shadetreeit')
-  const posts: BlogPost[] = rssJson.items.map((item: any) => {
-    const firstParagraph = item.content.match(paragraph)?.[1]
-    return {
-      title: item.title,
-      link: item.link,
-      pubDate: dayjs(item.published),
-      categories: item.category,
-      imageUrl: item.content.match(imageUrl)?.[1],
-      intro: firstParagraph.length > 300 ? firstParagraph.slice(0, 300) + '...' : firstParagraph,
-      content: item.content
-    }
-  })
+  try {
+    const rssJson = await parse('https://medium.com/feed/@shadetreeit')
+    const posts: BlogPost[] = rssJson.items.map((item: any) => {
+      const firstParagraph = item.content.match(paragraph)?.[1]
+      return {
+        title: item.title,
+        link: item.link,
+        pubDate: dayjs(item.published),
+        categories: item.category,
+        imageUrl: item.content.match(imageUrl)?.[1],
+        intro: firstParagraph.length > 300 ? firstParagraph.slice(0, 300) + '...' : firstParagraph,
+        content: item.content,
+      }
+    })
 
-  return sort(posts).desc(post => post.pubDate)
+    return sort(posts).desc(post => post.pubDate)
+  } catch (error) {
+    console.warn('Failed to fetch Medium blog posts:', error)
+    return []
+  }
 }
